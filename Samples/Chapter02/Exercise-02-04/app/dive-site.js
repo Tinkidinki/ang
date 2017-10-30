@@ -1,14 +1,16 @@
 "use strict";
-var DiveSite = (function () {
+// So they are making a type DiveSite here.
+Object.defineProperty(exports, "__esModule", { value: true });
+var DiveSite = /** @class */ (function () {
     function DiveSite() {
     }
+    DiveSite.FavoriteSites = [
+        { id: 1, name: 'Shaab El Erg' },
+        { id: 2, name: 'Abu Gotta Ramada' },
+        { id: 3, name: 'El Arouk' },
+        { id: 4, name: 'Small Giftun' }
+    ];
     return DiveSite;
 }());
-DiveSite.FavoriteSites = [
-    { id: 1, name: 'Shaab El Erg' },
-    { id: 2, name: 'Abu Gotta Ramada' },
-    { id: 3, name: 'El Arouk' },
-    { id: 4, name: 'Small Giftun' }
-];
 exports.DiveSite = DiveSite;
 //# sourceMappingURL=dive-site.js.map

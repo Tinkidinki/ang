@@ -7,6 +7,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
+var dive_log_entry_1 = require("./dive-log-entry");
 // So component decorator tells what
 // part of the html page is controlled by 
 // what template.
@@ -17,26 +18,7 @@ var DiveLogComponent = /** @class */ (function () {
         // Dives and stock dives are arrays of dictionaries.
         this.dives = [];
         this._index = 0;
-        this._stockDives = [
-            {
-                site: 'Abu Gotta Ramada',
-                location: 'Hurghada, Egypt',
-                depth: 72,
-                time: 54
-            },
-            {
-                site: 'Ponte Mahoon',
-                location: 'Maehbourg, Mauritius',
-                depth: 54,
-                time: 38
-            },
-            {
-                site: 'Molnar Cave',
-                location: 'Budapest, Hungary',
-                depth: 98,
-                time: 62
-            }
-        ];
+        this._stockDives = dive_log_entry_1.DiveLogEntry.StockDives;
     }
     // Criteria for adding a dive
     DiveLogComponent.prototype.enableAdd = function () {

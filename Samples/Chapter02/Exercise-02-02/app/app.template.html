@@ -1,5 +1,36 @@
 <div class="container-fluid">
-  <h1>Dive Site Maintenance</h1>
-  <site-list-view></site-list-view>
-  <add-site-view></add-site-view>
+    <h1> Dive Site Maintenance </h1>
+
+    <site-list-view *ngIf="currentView == 'list'"
+        [sites]="sites"
+        (onAdd)="startAdd()"
+        (onEdit)="startEdit($event)">
+        <!-- just because sites is a string 
+            doesn't mean a string is passed. AngularJS 
+            uses strings for these things. -->
+    </site-list-view>
+
+    <add-site-view *ngIf="currentView == 'add'"
+        [siteId] = "newSiteId"
+        (onAdded)="siteAdded($event)"
+        (onCancel)="navigateTo('list')">
+    </add-site-view>
+
+    <edit-site-view *ngIf="currentView == 'edit'"
+        [site] = "currentSite"
+        (onSaved)="siteSaved($event)"
+        (onCancel)="navigateTo('list')">
+    </edit-site-view>
 </div>
+
+<!-- This property binding and event binding 
+    can be done in the html page only.
+    Event binding, when this event occurs, do this.
+
+    Property binding: The value in the RHS is put in 
+    the LHS variable 
+
+    Also looks like all variables are available everywhere?
+
+    $event is what the event emitted by the emitter is called.
+-->

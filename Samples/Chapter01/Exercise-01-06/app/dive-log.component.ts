@@ -1,4 +1,5 @@
 import {Component} from '@angular/core';
+import {DiveLogEntry} from './dive-log-entry'
 
 // So component decorator tells what
 // part of the html page is controlled by 
@@ -16,29 +17,10 @@ import {Component} from '@angular/core';
 export class DiveLogComponent {
     // Dives and stock dives are arrays of dictionaries.
 
-    public dives = [];
+    public dives: DiveLogEntry[] = [];
     private _index = 0;
-    private _stockDives = [
-        {
-          site: 'Abu Gotta Ramada',
-          location: 'Hurghada, Egypt',
-          depth: 72,
-          time: 54
-        },
-        {
-          site: 'Ponte Mahoon',
-          location: 'Maehbourg, Mauritius',
-          depth: 54,
-          time: 38
-        },
-        {
-          site: 'Molnar Cave',
-          location: 'Budapest, Hungary',
-          depth: 98,
-          time: 62
-        }
-    ];
-
+    private _stockDives = DiveLogEntry.StockDives;
+       
     // Criteria for adding a dive
     public enableAdd() {
         return this._index < this._stockDives.length;

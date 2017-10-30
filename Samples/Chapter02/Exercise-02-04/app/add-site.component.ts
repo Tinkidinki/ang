@@ -1,20 +1,20 @@
-import {Component, Input, Output, EventEmitter} from '@angular/core';
+import {Component, Output, EventEmitter} from '@angular/core';
 
 @Component({
-  selector: 'add-site-view',
-  templateUrl: 'app/add-site.template.html'
+    selector: 'add-site-view',
+    templateUrl: 'app/add-site.template.html'
 })
+
 export class AddSiteComponent {
-  @Input() siteId: number;
-  @Output() onAdded = new EventEmitter<string>();
-  @Output() onCancel = new EventEmitter();
-  siteName: string;
+    @Output() onAdded = new EventEmitter();
+    @Output() onCancel = new EventEmitter();
 
-  added() {
-    this.onAdded.emit(this.siteName);
-  }
+    added() {
+        this.onAdded.emit(null);
+    }
 
-  cancel() {
-    this.onCancel.emit(null);
-  }
+    cancel() {
+        this.onCancel.emit(null);
+    }
+    
 }

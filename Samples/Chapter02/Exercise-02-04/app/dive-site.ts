@@ -1,4 +1,9 @@
+
+// So they are making a type DiveSite here.
+
 export class DiveSite {
+    // okay, this is how the divesites are stored!
+    // Cool!
     id: number;
     name: string;
 

@@ -1,4 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
+import {DiveLogEntry} from './dive-log-entry';
 
 // From what I understand, a decorator works for the
 // whole file you use.
@@ -11,7 +12,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 // We know now, that the class is a pipe, and its name is contentFilter.
 @Pipe({name: 'contentFilter'})
 export class ContentFilterPipe implements PipeTransform {
-    transform(value: any[], searchFor: string) :any[] {
+    transform(value: DiveLogEntry[], searchFor: string) :DiveLogEntry[] {
         if (!searchFor) return value;
         searchFor = searchFor.toLowerCase();
         return value.filter(dive =>
@@ -19,5 +20,6 @@ export class ContentFilterPipe implements PipeTransform {
             dive.location.toLowerCase().indexOf(searchFor) >= 0 ||
             dive.depth.toString().indexOf(searchFor) >= 0 ||
             dive.time.toString().indexOf(searchFor) >= 0);
+        
     }
 }

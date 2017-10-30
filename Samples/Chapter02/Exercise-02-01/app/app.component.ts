@@ -1,5 +1,7 @@
 import {Component} from '@angular/core';
 
+// You either give a path to the template or the template itself.
+// Notice how the template is in ticks.
 @Component({
   selector: 'yw-app',
   template: `

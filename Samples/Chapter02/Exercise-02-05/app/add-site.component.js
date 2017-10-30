@@ -8,40 +8,38 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var AddSiteComponent = (function () {
+var AddSiteComponent = /** @class */ (function () {
     function AddSiteComponent() {
         this.onAdded = new core_1.EventEmitter();
         this.onCancel = new core_1.EventEmitter();
     }
     AddSiteComponent.prototype.added = function () {
-        if (this.siteName) {
-            this.onAdded.emit(this.siteName);
-        }
+        this.onAdded.emit(this.siteName);
     };
     AddSiteComponent.prototype.cancel = function () {
         this.onCancel.emit(null);
     };
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Number)
+    ], AddSiteComponent.prototype, "siteId", void 0);
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", Object)
+    ], AddSiteComponent.prototype, "onAdded", void 0);
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", Object)
+    ], AddSiteComponent.prototype, "onCancel", void 0);
+    AddSiteComponent = __decorate([
+        core_1.Component({
+            selector: 'add-site-view',
+            templateUrl: 'app/add-site.template.html'
+        })
+    ], AddSiteComponent);
     return AddSiteComponent;
 }());
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", Number)
-], AddSiteComponent.prototype, "siteId", void 0);
-__decorate([
-    core_1.Output(),
-    __metadata("design:type", Object)
-], AddSiteComponent.prototype, "onAdded", void 0);
-__decorate([
-    core_1.Output(),
-    __metadata("design:type", Object)
-], AddSiteComponent.prototype, "onCancel", void 0);
-AddSiteComponent = __decorate([
-    core_1.Component({
-        selector: 'add-site-view',
-        templateUrl: 'app/add-site.template.html'
-    }),
-    __metadata("design:paramtypes", [])
-], AddSiteComponent);
 exports.AddSiteComponent = AddSiteComponent;
 //# sourceMappingURL=add-site.component.js.map

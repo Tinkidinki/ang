@@ -1,3 +1,6 @@
+
+// So they are making a type DiveSite here.
+
 export class DiveSite {
     id: number;
     name: string;
