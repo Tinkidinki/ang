@@ -1,27 +1,27 @@
-import {Component, Output, EventEmitter} from '@angular/core';
+import {Component, Input, Output, EventEmitter} from '@angular/core';
+import {SiteManagementService} from './site-management.service';
 
 @Component({
   selector: 'add-site-view',
-  templateUrl: 'app/add-site.template.html',
-  styles: [`
-    h3 { 
-      font-weight: bold;
-      color: maroon;
-    }
-  `]
+  templateUrl: 'app/add-site.template.html'
 })
 export class AddSiteComponent {
-  @Output() onAdded = new EventEmitter<string>();
-  @Output() onCancel = new EventEmitter();
+  @Output() onClosed = new EventEmitter();
   siteName: string;
 
-  added() {
+  constructor(private siteService: SiteManagementService){
+    
+  }
+
+  add() {
     if (this.siteName) {
-      this.onAdded.emit(this.siteName);
+      //this.onAdded.emit(this.siteName);
+      this.siteService.addSite({id: 0, name: this.siteName});
+      this.onClosed.emit(null);
     }
   }
 
   cancel() {
-    this.onCancel.emit(null);
+    this.onClosed.emit(null);
   }
 }

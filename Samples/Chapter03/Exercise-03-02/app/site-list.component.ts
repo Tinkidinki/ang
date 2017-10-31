@@ -1,4 +1,4 @@
-import {Component, Output, EventEmitter} from '@angular/core';
+import {Component, Input, Output, EventEmitter} from '@angular/core';
 import {DiveSite} from './dive-site';
 import {SiteManagementService} from './site-management.service'
 
@@ -25,10 +25,11 @@ export class SiteListComponent {
   @Output() onEdit = new EventEmitter<number>();
   @Output() onDelete = new EventEmitter<number>();
 
-  constructor(private siteService: SiteManagementService) {
+  constructor(private siteService: SiteManagementService){
     this.sites = siteService.getAllSites();
   }
-
+  
+  
   add() {
     this.onAdd.emit(null);
   }
@@ -39,5 +40,6 @@ export class SiteListComponent {
 
   delete(siteId: number) {
     this.onDelete.emit(siteId);
+    console.log("Ondelete:" + siteId)
   }
 }

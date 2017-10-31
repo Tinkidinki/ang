@@ -4,13 +4,13 @@
     <input #siteNameBox class="form-control input-lg" type="text" 
       placeholder="site name" 
       (keyup)="siteName=siteNameBox.value"
-      (keyup.enter)="added()" />
+      (keyup.enter)="add()" />
   </div>
 </div>
 <div class="row" style="margin-top: 12px;">
   <div class="col-sm-6">
     <button class="btn btn-success btn"
-      (click)="added()"
+      (click)="add()"
       [disabled]="!siteName">
       Add
     </button>

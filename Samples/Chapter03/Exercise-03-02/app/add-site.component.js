@@ -8,37 +8,36 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var AddSiteComponent = (function () {
-    function AddSiteComponent() {
-        this.onAdded = new core_1.EventEmitter();
-        this.onCancel = new core_1.EventEmitter();
+var site_management_service_1 = require("./site-management.service");
+var AddSiteComponent = /** @class */ (function () {
+    function AddSiteComponent(siteService) {
+        this.siteService = siteService;
+        this.onClosed = new core_1.EventEmitter();
     }
-    AddSiteComponent.prototype.added = function () {
+    AddSiteComponent.prototype.add = function () {
         if (this.siteName) {
-            this.onAdded.emit(this.siteName);
+            //this.onAdded.emit(this.siteName);
+            this.siteService.addSite({ id: 0, name: this.siteName });
+            this.onClosed.emit(null);
         }
     };
     AddSiteComponent.prototype.cancel = function () {
-        this.onCancel.emit(null);
+        this.onClosed.emit(null);
     };
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", Object)
+    ], AddSiteComponent.prototype, "onClosed", void 0);
+    AddSiteComponent = __decorate([
+        core_1.Component({
+            selector: 'add-site-view',
+            templateUrl: 'app/add-site.template.html'
+        }),
+        __metadata("design:paramtypes", [site_management_service_1.SiteManagementService])
+    ], AddSiteComponent);
     return AddSiteComponent;
 }());
-__decorate([
-    core_1.Output(),
-    __metadata("design:type", Object)
-], AddSiteComponent.prototype, "onAdded", void 0);
-__decorate([
-    core_1.Output(),
-    __metadata("design:type", Object)
-], AddSiteComponent.prototype, "onCancel", void 0);
-AddSiteComponent = __decorate([
-    core_1.Component({
-        selector: 'add-site-view',
-        templateUrl: 'app/add-site.template.html',
-        styles: ["\n    h3 { \n      font-weight: bold;\n      color: maroon;\n    }\n  "]
-    }),
-    __metadata("design:paramtypes", [])
-], AddSiteComponent);
 exports.AddSiteComponent = AddSiteComponent;
 //# sourceMappingURL=add-site.component.js.map

@@ -8,9 +8,10 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var dive_site_1 = require("./dive-site");
-var DeleteSiteComponent = (function () {
+var DeleteSiteComponent = /** @class */ (function () {
     function DeleteSiteComponent() {
         this.onDeleted = new core_1.EventEmitter();
         this.onCancel = new core_1.EventEmitter();
@@ -21,26 +22,25 @@ var DeleteSiteComponent = (function () {
     DeleteSiteComponent.prototype.cancel = function () {
         this.onCancel.emit(null);
     };
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", dive_site_1.DiveSite)
+    ], DeleteSiteComponent.prototype, "site", void 0);
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", Object)
+    ], DeleteSiteComponent.prototype, "onDeleted", void 0);
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", Object)
+    ], DeleteSiteComponent.prototype, "onCancel", void 0);
+    DeleteSiteComponent = __decorate([
+        core_1.Component({
+            selector: 'delete-site-view',
+            templateUrl: 'app/delete-site.template.html'
+        })
+    ], DeleteSiteComponent);
     return DeleteSiteComponent;
 }());
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", dive_site_1.DiveSite)
-], DeleteSiteComponent.prototype, "site", void 0);
-__decorate([
-    core_1.Output(),
-    __metadata("design:type", Object)
-], DeleteSiteComponent.prototype, "onDeleted", void 0);
-__decorate([
-    core_1.Output(),
-    __metadata("design:type", Object)
-], DeleteSiteComponent.prototype, "onCancel", void 0);
-DeleteSiteComponent = __decorate([
-    core_1.Component({
-        selector: 'delete-site-view',
-        templateUrl: 'app/delete-site.template.html'
-    }),
-    __metadata("design:paramtypes", [])
-], DeleteSiteComponent);
 exports.DeleteSiteComponent = DeleteSiteComponent;
 //# sourceMappingURL=delete-site.component.js.map

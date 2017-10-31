@@ -1,10 +1,10 @@
 import {Component} from '@angular/core';
-import {SiteManagementService} from './site-management.service';
+import {SiteManagementService} from './site-management.service'
 
 @Component({
   selector: 'yw-app',
   templateUrl: 'app/app.template.html',
-  providers: [SiteManagementService]
+  providers: [SiteManagementService] 
 })
 export class AppComponent {
   siteId: number;

@@ -8,9 +8,10 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var dive_site_1 = require("./dive-site");
-var EditSiteComponent = (function () {
+var EditSiteComponent = /** @class */ (function () {
     function EditSiteComponent() {
         this.onSaved = new core_1.EventEmitter();
         this.onCancel = new core_1.EventEmitter();
@@ -23,26 +24,25 @@ var EditSiteComponent = (function () {
     EditSiteComponent.prototype.cancel = function () {
         this.onCancel.emit(null);
     };
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", dive_site_1.DiveSite)
+    ], EditSiteComponent.prototype, "site", void 0);
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", Object)
+    ], EditSiteComponent.prototype, "onSaved", void 0);
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", Object)
+    ], EditSiteComponent.prototype, "onCancel", void 0);
+    EditSiteComponent = __decorate([
+        core_1.Component({
+            selector: 'edit-site-view',
+            templateUrl: 'app/edit-site.template.html'
+        })
+    ], EditSiteComponent);
     return EditSiteComponent;
 }());
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", dive_site_1.DiveSite)
-], EditSiteComponent.prototype, "site", void 0);
-__decorate([
-    core_1.Output(),
-    __metadata("design:type", Object)
-], EditSiteComponent.prototype, "onSaved", void 0);
-__decorate([
-    core_1.Output(),
-    __metadata("design:type", Object)
-], EditSiteComponent.prototype, "onCancel", void 0);
-EditSiteComponent = __decorate([
-    core_1.Component({
-        selector: 'edit-site-view',
-        templateUrl: 'app/edit-site.template.html'
-    }),
-    __metadata("design:paramtypes", [])
-], EditSiteComponent);
 exports.EditSiteComponent = EditSiteComponent;
 //# sourceMappingURL=edit-site.component.js.map

@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {DiveSite} from './dive-site';
 
+// New decorator! Injectable
 @Injectable()
 export class SiteManagementService {
   private sites = DiveSite.FavoriteSites.slice(0);

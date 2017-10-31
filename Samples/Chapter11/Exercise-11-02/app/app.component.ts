@@ -8,7 +8,9 @@ import 'rxjs/add/operator/do';
   template: `
     <div class="container">
       <div class="col-sm-12 mousepad"
-        id="mousepad">
+        id="mousepad"
+        [class.subscribed]="subscription"
+        (click)="toggleSubscribe()">
       </div>
       <log-board [messages]="messages"></log-board>
     </div>
@@ -24,6 +26,8 @@ import 'rxjs/add/operator/do';
 })
 export class AppComponent implements AfterViewInit {
   messages: any[] = [];
+  subscription: any = null;
+  mouseMove$: Observable<any>;
 
   log(message: any) {
     this.messages.push(message)
@@ -31,12 +35,25 @@ export class AppComponent implements AfterViewInit {
 
   ngAfterViewInit() {
     let mousepad = document.getElementById('mousepad');
-    let mouseMove$ = Observable
-      .fromEvent(mousepad, 'mousemove')
-      .do((m: MouseEvent) => { 
-        this.log(`(${m.clientX}, ${m.clientY})`);
-      });
+    this.mouseMove$ = Observable
+      .fromEvent(mousepad, 'mousemove');
+      
 
-    mouseMove$.subscribe();
+    this.toggleSubscribe();
+  }
+
+  toggleSubscribe() {
+    if (this.subscription){
+      this.subscription.unsubscribe(); //whaat?
+      this.subscription = null;
+      this.log('Cancelled');
+    }
+    else{
+      this.subscription = this.mouseMove$.subscribe(
+        (m: MouseEvent) => {
+          this.log(`(${m.clientX}, ${m.clientY})`)
+        }
+      )
+    }
   }
 }
