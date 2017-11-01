@@ -15,7 +15,7 @@ export class AppComponent {
   // I can subscribe to a subject
   constructor(private chatService: ChatService){
     chatService.messages.subscribe(msg => {
-      console.log("Response from websocket: " + msg);
+      console.log("Response from websocket: " , msg);
     });
   }
 
@@ -32,12 +32,13 @@ export class AppComponent {
   }
 
   sendMsg() {
-    console.log('new message from client to websocket: ', this.message);
+    
 
     // I can use methods from the subjects' observer. (That have to check some
     // state of the subject before they send.)
 
     this.chatService.messages.next(this.message);
-    this.message.message = ''; // why?
+    console.log('new message from client to websocket: ', this.message);
+    // this.message.message = ''; // why?
   }
 }
